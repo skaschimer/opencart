@@ -722,7 +722,7 @@ class Order extends \Opencart\System\Engine\Model {
 	 *
 	 * $this->model_checkout_order->addTotal($order_id, $order_total_data);
 	 */
-	public function addTotal(int $order_id, array $data): void {
+	public function addTotal(int $order_id, array $data): int {
 		$this->db->query("INSERT INTO `" . DB_PREFIX . "order_total` SET `order_id` = '" . (int)$order_id . "', `extension` = '" . $this->db->escape($data['extension']) . "', `code` = '" . $this->db->escape($data['code']) . "', `title` = '" . $this->db->escape($data['title']) . "', `value` = '" . (float)$data['value'] . "', `sort_order` = '" . (int)$data['sort_order'] . "'");
 
 		$order_total_id = $this->db->getLastId();
