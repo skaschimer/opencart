@@ -1,3 +1,4 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 // Library
@@ -6,7 +7,7 @@ const session = loader.library('session');
 // Language
 const language = loader.language('account/password');
 
-export default class {
+export default class extends Controller {
     render() {
         let data = {};
 

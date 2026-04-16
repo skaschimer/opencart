@@ -1,8 +1,9 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
-export default class {
-    async connected() {
+export default class extends Controller {
+    async render() {
 
-        this.innerHTML = loader.template('common/home', { ...data, ...language });
+        return loader.template('common/home', { ...data, ...language });
     }
 }

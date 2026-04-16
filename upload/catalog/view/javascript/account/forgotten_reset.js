@@ -1,5 +1,5 @@
 
-export default class {
+export default class extends Controller {
     async connected() {
 
     }

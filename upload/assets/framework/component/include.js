@@ -5,49 +5,48 @@ import { loader } from '../index.js';
 const config = await loader.config('default');
 
 class XInclude extends WebComponent {
-    observed  = ['src'];
+    observed = ['src'];
 
     get src() {
-        console.log(this.getAttribute('src'));
-
         return this.getAttribute('src');
     }
 
     set src(src) {
-        console.log('set src');
-        console.log(src);
-
-        //this.setAttribute('src', src);
+        this.setAttribute('src', src);
     }
 
     async render() {
         // Get the source HTML to load
-        //if (!this.src) return;
+        if (!this.src) return;
 
         let controller = await import(config.config_path + this.src + '.js');
 
-        let test = new controller.default();
+        let object = new controller.default();
 
-        this.innerHTML = await test.render();
+        let output = await object.render();
 
-        // Attach Events based on elements that have data-bind and data-on attributes
-        let elements = this.querySelectorAll('[data-bind], [data-on]');
+        if (output) {
+            this.innerHTML = output;
 
-        for (let element of elements) {
-            // Binds the element to an attribute by name.
-            if (element.hasAttribute('data-bind')) {
-                test['$' + element.getAttribute('data-bind')] = element;
+            // Attach Events based on elements that have data-bind and data-on attributes
+            let elements = this.querySelectorAll('[data-bind], [data-on]');
 
-                element.removeAttribute('data-bind');
-            }
+            for (let element of elements) {
+                // Binds the element to an attribute by name.
+                if (element.hasAttribute('data-bind')) {
+                    object['$' + element.getAttribute('data-bind')] = element;
 
-            if (element.hasAttribute('data-on')) {
-                let part = element.getAttribute('data-on').split(':');
+                    element.removeAttribute('data-bind');
+                }
 
-                if (part[1] !== undefined && part[1] in test) {
-                    element.addEventListener(part[0], test[part[1]].bind(test));
+                if (element.hasAttribute('data-on')) {
+                    let part = element.getAttribute('data-on').split(':');
 
-                    element.removeAttribute('data-on');
+                    if (part[1] !== undefined && part[1] in object) {
+                        element.addEventListener(part[0], object[part[1]].bind(object));
+
+                        element.removeAttribute('data-on');
+                    }
                 }
             }
         }

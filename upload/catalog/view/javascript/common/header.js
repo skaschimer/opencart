@@ -1,3 +1,4 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 // Config
@@ -9,8 +10,8 @@ const language = await loader.language('common/header');
 // library
 const session = await loader.library('session');
 
-export default class {
-    render() {
+export default class extends Controller {
+    async render() {
         let data = {};
 
         data.wishlist = 0;
@@ -21,13 +22,15 @@ export default class {
             data.wishlist = session.get('customer').getWishlist().length;
         }
 
-        return loader.template('common/header', { ...data, ...language, ...config });
+        return await loader.template('common/header', { ...data, ...language, ...config });
     }
 
     register(e) {
         e.preventDefault();
 
         console.log('register');
+
+        console.log(this);
 
         console.log(this.$contact);
     }

@@ -12,7 +12,7 @@ const language = loader.language('information/contact');
 // Storage
 const locations = loader.storage('information/location');
 
-export default class {
+export default class extends Controller {
     async connected() {
 
     }

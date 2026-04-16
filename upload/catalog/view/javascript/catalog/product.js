@@ -1,3 +1,4 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 // Config
@@ -13,7 +14,7 @@ const tax = await loader.library('tax');
 // Currency
 const currency = local.has('currency') ? local.get('currency') : config.config_currency;
 
-export default class {
+export default class extends Controller {
     async render() {
         let data = {};
 

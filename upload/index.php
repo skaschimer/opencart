@@ -7,8 +7,6 @@ if (is_file(dirname(__FILE__)  . '/config.php')) {
 	require_once('config.php');
 }
 
-//include DIR_APPLICATION . 'shop/localhost/';
-
 // Install
 if (!defined('DIR_APPLICATION')) {
 	header('Location: install/index.php');

@@ -1,8 +1,9 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 const language = loader.language('account/download');
 
-export default class {
+export default class extends Controller {
     render() {
         let data = {};
 

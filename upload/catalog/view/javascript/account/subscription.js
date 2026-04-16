@@ -1,4 +1,4 @@
-export default class {
+export default class extends Controller {
     render() {
 
     }

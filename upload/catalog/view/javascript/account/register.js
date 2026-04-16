@@ -1,3 +1,4 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 // Config
@@ -9,7 +10,7 @@ const language = await loader.language('account/register');
 // Customer Groups
 const customer_groups = await loader.storage('customer/customer_group');
 
-export default class {
+export default class extends Controller {
     async render() {
         let data = {};
 

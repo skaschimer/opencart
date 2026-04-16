@@ -1,3 +1,4 @@
+export { Controller } from './library/controller.js';
 export { WebComponent } from './library/webcomponent.js';
 
 // General

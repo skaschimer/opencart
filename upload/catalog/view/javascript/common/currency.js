@@ -1,3 +1,4 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 // library
@@ -12,8 +13,8 @@ const language = await loader.language('common/currency');
 // Storage
 const currencies = await loader.storage('localisation/currency');
 
-export default class {
-    render() {
+export default class extends Controller {
+    async render() {
         let data = {};
 
         // Config stored currency code

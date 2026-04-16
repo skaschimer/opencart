@@ -1,9 +1,10 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 // Language
 const language = await loader.language('common/language');
 
-export default class {
+export default class extends Controller {
     render() {
 
 

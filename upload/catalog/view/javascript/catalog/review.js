@@ -1,3 +1,4 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 // Config
@@ -6,7 +7,7 @@ const config = await loader.config('default');
 // Language
 const language = await loader.language('catalog/review');
 
-export default class {
+export default class extends Controller {
     async render() {
 
     }

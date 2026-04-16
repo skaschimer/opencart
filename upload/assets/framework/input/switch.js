@@ -40,8 +40,7 @@ class XSwitch extends WebComponent {
         html += '</div>';
 
         return html;
-    };
-
+    }
     onChange(e) {
         this.checked = e.target.checked ? 1 : 0;
     }

@@ -1,6 +1,6 @@
-import {Controller} from "../../../../assets/framework/library/controller";
+import { Controller } from '../component.js';
 
-export default class {
+export default class extends Controller {
     data = [];
 
     async connected() {

@@ -1,8 +1,9 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 const language = await loader.language('account/reset');
 
-export default class {
+export default class extends Controller {
     render() {
 
 

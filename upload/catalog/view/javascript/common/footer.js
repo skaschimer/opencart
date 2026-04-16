@@ -1,3 +1,4 @@
+import { Controller } from '../component.js';
 import { loader } from '../index.js';
 
 // Config
@@ -12,8 +13,8 @@ const articles = await loader.storage('cms/article-1');
 // Information
 const informations = await loader.storage('information/information');
 
-export default class {
-    render() {
+export default class extends Controller {
+    async render() {
         let data = {};
 
         // Articles
@@ -29,6 +30,6 @@ export default class {
 
         data.year = date.getFullYear();
 
-        return loader.template('common/footer', { ...data, ...language, ...config });
+        return await loader.template('common/footer', { ...data, ...language, ...config });
     }
 }
