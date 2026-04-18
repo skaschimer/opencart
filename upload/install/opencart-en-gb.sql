@@ -1141,7 +1141,7 @@ VALUES ('activity.customer.add', 'Adds new customer entry in the activity log.',
        ('ssr.article.delete', 'Triggers article static site data creation.', 'admin/model/cms/article.deleteArticle/after', 'event/article.deleteArticle', 1),
 
        ('ssr.attribute.edit', 'Triggers attribute static site data creation.', 'admin/model/catalog/attribute.editAttribute/after', 'event/attribute.editAttribute', 1),
-       ('ssr.attribute.delete', 'Triggers attribute static site data creation.', 'admin/model/catalog/attribute.deleteAttribute/after', 'event/attribute.deleteAttribute', 1, 1),
+       ('ssr.attribute.delete', 'Triggers attribute static site data creation.', 'admin/model/catalog/attribute.deleteAttribute/after', 'event/attribute.deleteAttribute', 1),
        
        ('ssr.banner.add', 'Triggers banner static site data creation.', 'admin/model/design/banner.addBanner/after', 'event/banner.addBanner', 1),
        ('ssr.banner.edit', 'Triggers banner static site data creation.', 'admin/model/design/banner.editBanner/after', 'event/banner.editBanner', 1),
@@ -1195,7 +1195,7 @@ VALUES ('activity.customer.add', 'Adds new customer entry in the activity log.',
        ('ssr.manufacturer.delete', 'Triggers manufacturer static site data creation.', 'admin/model/catalog/manufacturer.deleteManufacturer/before', 'event/manufacturer.deleteManufacturer', 1),
 
        ('ssr.option.edit', 'Triggers static option site data creation.', 'admin/model/catalog/option.editOption/after', 'event/option.editOption', 1),
-       ('ssr.option.delete', 'Triggers static option site data creation.', 'admin/model/catalog/option.deleteOption/before', 'event/option.deleteOption', 1, 1),
+       ('ssr.option.delete', 'Triggers static option site data creation.', 'admin/model/catalog/option.deleteOption/before', 'event/option.deleteOption', 1),
        ('ssr.product.add', 'Triggers product static site data creation.', 'admin/model/catalog/product.addProduct/after', 'event/product.addProduct', 1),
        ('ssr.product.edit', 'Triggers product static site data creation.', 'admin/model/catalog/product.editProduct/after', 'event/product.editProduct', 1),
        ('ssr.product.delete', 'Triggers product static site data creation.', 'admin/model/catalog/product.deleteProduct/before', 'event/product.deleteProduct', 1),
