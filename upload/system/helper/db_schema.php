@@ -7576,7 +7576,7 @@ function oc_db_schema() {
 			],
 			[
 				'name'    => 'route',
-				'type'    => 'int(11)',
+				'type'    => 'varchar(64)',
 				'default' => '0'
 			],
 			[
@@ -7620,6 +7620,10 @@ function oc_db_schema() {
 				'name'    => 'store_id',
 				'type'    => 'int(11)',
 				'default' => '0'
+			],
+			[
+				'name' => 'value',
+				'type' => 'text'
 			],
 			[
 				'name' => 'language_id',
