@@ -1,76 +1,71 @@
 import { WebComponent } from '../library/webcomponent.js';
+import { loader } from '../index.js';
+
+const language = loader.language('default');
 
 class XCheckbox extends WebComponent {
     static observed = ['checked'];
-    element = HTMLInputElement;
-
-    get checked() {
-        return this.getAttribute('checked') == 1 ? 1 : 0;
-    }
-
-    set checked(value) {
-        if (this.checked != value) {
-            this.setAttribute('checked', value);
-        }
-    }
-
-    onChange(e) {
-        this.checked = e.target.checked ? 1 : 0;
-    }
-
-    onChecked(e) {
-        this.element.checked = e.detail.value_new == 1 ? true : false;
-    }
+    option = [];
 
     async connected() {
-        this.addEventListener('[checked]', this.onChecked);
-
-        this.innerHTML = this.render();
-
-        this.element = this.querySelector('input[type=\'checkbox\']');
-
-        this.element.addEventListener('change', this.onChange);
-
-        if (this.hasAttribute('input-id')) {
-            this.element.setAttribute('id', this.getAttribute('input-id'));
-        }
+        this.option = this.querySelectorAll('option');
     };
 
     render() {
-       let html = '<div class="row mb-3' + (custom_field.required ? 'required' : '') + '">';
+        let html = '<div id="' + option.getAttribute('input-id') + '" class="form-control" style="height: 150px; overflow: auto;">';
 
-       html += '<label class="col-sm-2 col-form-label">' + custom_field.name + '</label>';
-       html += '<div class="col-sm-10">';
-       html += '  <div id="' +  + '">';
+        for (let option of this.option) {
+            html += '<div class="form-check">';
+            html += '   <input type="checkbox"';
 
-       for (let custom_field_value of custom_field.custom_field_value) {
-            html += '<div class"form-check">';
-            html += '   <input type="checkbox" name="custom_field[' + custom_field.custom_field_id + '][]" value="{{ custom_field_value.custom_field_value_id }}" id="input-custom-value-{{ custom_field_value.custom_field_value_id }}" class="form-check-input"';
-
-            if (address_custom_field[custom_field.custom_field_id] and custom_field_value.custom_field_value_id in address_custom_field[custom_field.custom_field_id]) {
-               html += '   checked';
+            if (option.hasAttribute('name')) {
+                html += ' name="' + option.getAttribute('name') + '"';
             }
-               html += '   />';
 
+            if (option.hasAttribute('value')) {
+                html += ' value="' + option.getAttribute('value') + '"';
+            }
 
-            html += '   <label for="input-custom-value-' + custom_field_value.custom_field_value_id + '" class="form-check-label">' + custom_field_value.name + '</label>';
+            if (option.hasAttribute('input-id')) {
+                html += ' id="' + option.getAttribute('input-id') + '"';
+            }
+
+            html += 'class="form-check-input"';
+
+            if (option.hasAttribute('target')) {
+                html += ' data-on="change:onChange" data-target="' + option.getAttribute('target') + '"';
+            }
+
+            if (option.hasAttribute('checked')) {
+                html += ' checked';
+            }
+
+            html += '/>';
+
+            html += '   <label for="' + option.getAttribute('input-id') + '" class="form-check-label">' + option.innerHTML + '</label>';
             html += '</div>';
+        }
 
-
-            html += '<div id="error-custom-field-{{ custom_field.custom_field_id }}" className="invalid-feedback"></div>';
-
-            html += '</div>';
-
-            html += ' </div>
-            html += ' </div>
-
-        html += '<div class="form-control" style="height: 150px; overflow: auto;">';
-        html += '  <input type="hidden" name="' + this.getAttribute('name') + '" value=""/>';
-        html += '  <input type="checkbox" name="' + this.getAttribute('name') + '" value="' + this.getAttribute('value') + '" class="form-check-input"' + (this.checked ? ' checked' : '') + '/>';
         html += '</div>';
 
-        return
+        return html;
+    }
+
+    onChange(e) {
+        //$('input[name*=\'config_country_list\']').prop('checked', $(this).prop('checked'));
+
+        console.log('onChange', e.target.checked);
+
+        let target = document.getElementById(e.target.getAttribute('data-target'));
+
+        let options = target.querySelectorAll('option');
+
+        for (let option of options) {
+
+        console.log('onChange', target);
+
+        e.target.checked ? 1 : 0;
     }
 }
 
-customElements.define('x-radio', XRadio);
+customElements.define('x-checkbox', XCheckbox);
