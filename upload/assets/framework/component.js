@@ -17,7 +17,7 @@ import('./component/zone.js');
 
 // Input
 import('./input/autocomplete.js');
-//import('./input/checkbox.js');
+import('./input/checkbox.js');
 //import('./input/ckeditor.js');
 //import('./input/date.js');
 //import('./input/datetime.js');
