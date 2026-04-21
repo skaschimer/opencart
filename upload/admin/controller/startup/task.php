@@ -21,6 +21,9 @@ class Task extends \Opencart\System\Engine\Controller {
 	 */
 	public function index(): void {
 		if (php_sapi_name() !== 'cli') {
+
+			$this->log->write('CLI');
+
 			register_shutdown_function([$this, 'start']);
 		}
 	}
