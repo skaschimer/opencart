@@ -12,15 +12,11 @@ class XCheckbox extends WebComponent {
     };
 
     render() {
-        let html = '<div id="' + option.getAttribute('input-id') + '" class="form-control" style="height: 150px; overflow: auto;">';
+        let html = '<div id="' + this.getAttribute('input-id') + '" class="form-control" style="height: 150px; overflow: auto;">';
 
         for (let option of this.option) {
             html += '<div class="form-check">';
             html += '   <input type="checkbox"';
-
-            if (option.hasAttribute('name')) {
-                html += ' name="' + option.getAttribute('name') + '"';
-            }
 
             if (option.hasAttribute('value')) {
                 html += ' value="' + option.getAttribute('value') + '"';
@@ -41,7 +37,6 @@ class XCheckbox extends WebComponent {
             }
 
             html += '/>';
-
             html += '   <label for="' + option.getAttribute('input-id') + '" class="form-check-label">' + option.innerHTML + '</label>';
             html += '</div>';
         }
@@ -52,19 +47,19 @@ class XCheckbox extends WebComponent {
     }
 
     onChange(e) {
-        //$('input[name*=\'config_country_list\']').prop('checked', $(this).prop('checked'));
-
         console.log('onChange', e.target.checked);
 
         let target = document.getElementById(e.target.getAttribute('data-target'));
 
-        let options = target.querySelectorAll('option');
+        let options = target.querySelectorAll('input[type=\'checkbox\']');
+
+        console.log('onChange', options);
 
         for (let option of options) {
+            option.setAttribute('checked', e.target.checked ? 1 : 0);
+        }
 
         console.log('onChange', target);
-
-        e.target.checked ? 1 : 0;
     }
 }
 
