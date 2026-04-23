@@ -45,7 +45,6 @@ class Cli extends \Opencart\System\Engine\Controller {
 
 					break;
 				case 'usage':
-				default:
 					return new \Opencart\System\Engine\Action('startup/task.usage', $argv);
 
 					break;
