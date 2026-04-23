@@ -21,9 +21,6 @@ class Task extends \Opencart\System\Engine\Controller {
 	 */
 	public function index(): void {
 		if (php_sapi_name() !== 'cli') {
-
-			$this->log->write('CLI');
-
 			register_shutdown_function([$this, 'start']);
 		}
 	}
@@ -43,7 +40,20 @@ class Task extends \Opencart\System\Engine\Controller {
 		}
 
 		if (strtoupper(substr(php_uname(), 0, 3)) == 'WIN') {
-			pclose(popen('start /B php ' . DIR_APPLICATION . 'index.php start', 'r'));
+			$read = '';
+
+			$handle = popen('start /B php ' . DIR_APPLICATION . 'index.php start', 'r');
+
+			while(!feof($handle)) $read .= fread($handle, 2096);
+
+			// flush the content to the browser
+			flush();
+
+			if ($read) {
+				$this->log->write($read);
+			}
+
+			pclose($handle);
 		} else {
 			shell_exec('php ' . DIR_APPLICATION . 'index.php start > /dev/null 2>&1 &');
 		}
