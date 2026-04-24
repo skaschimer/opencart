@@ -1,9 +1,7 @@
 import { WebComponent } from '../library/webcomponent.js';
 
-class XTime extends WebComponent {
+customElements.define('x-time', class extends WebComponent {
     async connected() {
 
     }
-}
-
-customElements.define('x-time', XTime);
+});
