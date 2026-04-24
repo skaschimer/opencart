@@ -140,7 +140,6 @@ $_['entry_stock_warning']                 = 'Afficher un Avertissement de Stock 
 $_['entry_stock_checkout']                = 'Validation malgré Rupture de Stock';
 $_['entry_stock_status']                  = 'Statut des Stocks';
 $_['entry_affiliate_status']              = 'Statut des Affiliés';
-$_['entry_affiliate_group']               = 'Groupe d\'Affiliés';
 $_['entry_affiliate_approval']            = 'Approbation des Affiliés Requise';
 $_['entry_affiliate_auto']                = 'Commission Automatique';
 $_['entry_affiliate_commission']          = 'Commission des Affiliés (%)';
