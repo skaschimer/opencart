@@ -3,64 +3,31 @@ import { loader } from '../index.js';
 
 const language = loader.language('default');
 
-class XCheckbox extends WebComponent {
-    static observed = ['checked'];
-    option = [];
-
-    async connected() {
-        this.option = this.querySelectorAll('option');
-    };
-
+customElements.define('checkbox-all', class extends WebComponent {
     render() {
-        let html = '<div id="' + this.getAttribute('input-id') + '" class="form-control" style="height: 150px; overflow: auto;">';
+        let html = '';
 
-        for (let option of this.option) {
-            html += '<div class="form-check">';
-            html += '   <input type="checkbox"';
-
-            if (option.hasAttribute('value')) {
-                html += ' value="' + option.getAttribute('value') + '"';
-            }
-
-            if (option.hasAttribute('input-id')) {
-                html += ' id="' + option.getAttribute('input-id') + '"';
-            }
-
-            html += 'class="form-check-input"';
-
-            if (option.hasAttribute('target')) {
-                html += ' data-on="change:onChange" data-target="' + option.getAttribute('target') + '"';
-            }
-
-            if (option.hasAttribute('checked')) {
-                html += ' checked';
-            }
-
-            html += '/>';
-            html += '   <label for="' + option.getAttribute('input-id') + '" class="form-check-label">' + option.innerHTML + '</label>';
-            html += '</div>';
-        }
-
+        html += '<div class="form-check">';
+        html += '   <input type="checkbox" id="' + this.getAttribute('input-id') + '" class="form-check-input" data-on="change:onChange" data-target="' + this.getAttribute('target') + '"/>';
+        html += '   <label for="' + this.getAttribute('input-id') + '" class="form-check-label">' + this.innerHTML + '</label>';
         html += '</div>';
 
         return html;
     }
 
     onChange(e) {
-        console.log('onChange', e.target.checked);
-
         let target = document.getElementById(e.target.getAttribute('data-target'));
 
-        let options = target.querySelectorAll('input[type=\'checkbox\']');
+        const filtered = Array.from(target.querySelectorAll('input[type=\'checkbox\']')).filter(element => {
+            return !element.parentElement.parentElement.matches('checkbox-all');
+        });
 
-        console.log('onChange', options);
-
-        for (let option of options) {
-            option.setAttribute('checked', e.target.checked ? 1 : 0);
+        for (let checkbox of filtered) {
+            if (e.target.checked) {
+                checkbox.setAttribute('checked', '');
+            } else {
+                checkbox.removeAttribute('checked');
+            }
         }
-
-        console.log('onChange', target);
     }
-}
-
-customElements.define('x-checkbox', XCheckbox);
+});
