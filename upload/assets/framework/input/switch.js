@@ -1,20 +1,17 @@
 import { WebComponent } from '../library/webcomponent.js';
 
-class XSwitch extends WebComponent {
+customElements.define('input-switch', class extends WebComponent {
     get checked() {
         return this.getAttribute('checked') == 1 ? 1 : 0;
     }
 
     set checked(value) {
-        if (this.checked != value) {
-            this.setAttribute('checked', value);
-        }
+        if (this.checked != value) this.setAttribute('checked', value);
     }
 
     render() {
-        let html  = '';
+        let html = '<div class="form-switch form-switch-lg">';
 
-        html += '<div class="form-switch form-switch-lg">';
         html += '  <input type="hidden" name="' + this.getAttribute('name') + '" value=""/>';
         html += '  <input type="checkbox" name="' + this.getAttribute('name') + '" value="' + this.getAttribute('value') + '"';
 
@@ -41,9 +38,8 @@ class XSwitch extends WebComponent {
 
         return html;
     }
+
     onChange(e) {
         this.checked = e.target.checked ? 1 : 0;
     }
-}
-
-customElements.define('x-switch', XSwitch);
+});
