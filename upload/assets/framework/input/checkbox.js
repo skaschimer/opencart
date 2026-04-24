@@ -11,14 +11,14 @@ customElements.define('checkbox-all', class extends WebComponent {
     onChange(e) {
         let target = document.getElementById(e.target.getAttribute('data-target'));
 
-        const filtered = Array.from(target.querySelectorAll('input[type=\'checkbox\']')).filter(element => !element.parentElement.matches('checkbox-all'));
-
-        for (let checkbox of filtered) {
-            if (e.target.checked) {
-                checkbox.setAttribute('checked', '');
-            } else {
-                checkbox.removeAttribute('checked');
+        Array.from(target.querySelectorAll('input[type=\'checkbox\']')).filter(element => {
+            if (!element.parentElement.matches('checkbox-all')) {
+                if (e.target.checked) {
+                    element.setAttribute('checked', '');
+                } else {
+                    element.removeAttribute('checked');
+                }
             }
-        }
+        });
     }
 });
