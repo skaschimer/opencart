@@ -1,6 +1,6 @@
 import { WebComponent } from '../library/webcomponent.js';
 
-customElements.define('input-switch', class extends WebComponent {
+customElements.define('x-switch', class extends WebComponent {
     get checked() {
         return this.getAttribute('checked') == 1 ? 1 : 0;
     }
