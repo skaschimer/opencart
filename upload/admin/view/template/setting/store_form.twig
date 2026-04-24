@@ -239,7 +239,10 @@
                     <label class="col-sm-2 col-form-label">{{ entry_country_list }}</label>
                     <div class="col-sm-10">
                       <div id="input-country-list" class="form-control" style="height: 150px; overflow: auto;">
-                        <checkbox-all input-id="input-country-all" target="input-country-list">{{ text_all }}</checkbox-all>
+                        <div class="form-check">
+                          <checkbox-all input-id="input-country-all" target="input-country-list"></checkbox-all>
+                          <label for="input-country-all" class="form-check-label">{{ text_all }}</label>
+                        </div>
                         {% for country in countries %}
                           <div class="form-check">
                             <input type="checkbox" name="config_country_list[]" value="{{ country.country_id }}" id="input-country-{{ country.country_id }}" class="form-check-input"{% if country.country_id in config_country_list %} checked{% endif %}/>
@@ -276,7 +279,10 @@
                     <label class="col-sm-2 col-form-label">{{ entry_language_list }}</label>
                     <div class="col-sm-10">
                       <div id="input-language-list" class="form-control" style="height: 150px; overflow: auto;">
-                        <checkbox-all input-id="input-language-all" target="input-language-list">{{ text_all }}</checkbox-all>
+                        <div class="form-check">
+                          <checkbox-all input-id="input-language-all" target="input-language-list"></checkbox-all>
+                          <label for="input-language-all" class="form-check-label">{{ text_all }}</label>
+                        </div>
                         {% for language in languages %}
                           <div class="form-check">
                             <input type="checkbox" name="config_language_list[]" value="{{ language.code }}" id="input-language-{{ language.language_id }}" class="form-check-input"{% if language.code in config_language_list %} checked{% endif %}/> <label for="input-language-{{ language.language_id }}" class="form-check-label">{{ language.name }}</label>
@@ -288,12 +294,9 @@
                     </div>
                   </div>
                 </fieldset>
-
                 <fieldset>
                   <legend>{{ text_currency }}</legend>
-
                   <div class="row mb-3">
-
                     <label for="input-currency" class="col-sm-2 col-form-label">{{ entry_currency }}</label>
                     <div class="col-sm-10">
                       <select name="config_currency" id="input-currency" class="form-select">
@@ -303,14 +306,15 @@
                       </select>
                       <div class="form-text">{{ help_currency }}</div>
                     </div>
-
                   </div>
-
                   <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">{{ entry_currency_list }}</label>
                     <div class="col-sm-10">
                       <div id="input-currency-list" class="form-control" style="height: 150px; overflow: auto;">
-                        <checkbox-all input-id="input-currency-all" target="input-currency-list">{{ text_all }}</checkbox-all>
+                        <div class="form-check">
+                          <checkbox-all input-id="input-currency-all" target="input-currency-list"></checkbox-all>
+                          <label for="input-currency-all" class="form-check-label">{{ text_all }}</label>
+                        </div>
                         {% for currency in currencies %}
                           <div class="form-check">
                             <input type="checkbox" name="config_currency_list[]" value="{{ currency.code }}" id="input-currency-{{ currency.currency_id }}" class="form-check-input"{% if currency.code in config_currency_list %} checked{% endif %}/> <label for="input-currency-{{ currency.currency_id }}" class="form-check-label">{{ currency.title }}</label>
@@ -321,9 +325,7 @@
                       <div id="error-currency-list" class="invalid-feedback"></div>
                     </div>
                   </div>
-
                 </fieldset>
-
               </div>
 
               <div id="tab-option" class="tab-pane">

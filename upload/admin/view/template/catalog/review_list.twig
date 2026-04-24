@@ -3,7 +3,7 @@
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
-          <th class="text-center" style="width: 1px;"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', $(this).prop('checked'));" class="form-check-input"/></th>
+          <th class="text-center" style="width: 1px;"><checkbox-all target="form-review"></checkbox-all></th>
           <th><a href="{{ sort_product }}"{% if sort == 'name' %} class="{{ order|lower }}"{% endif %}>{{ column_product }}</a></th>
           <th><a href="{{ sort_author }}"{% if sort == 'author' %} class="{{ order|lower }}"{% endif %}>{{ column_author }}</a></th>
           <th class="text-end d-none d-lg-table-cell"><a href="{{ sort_rating }}"{% if sort == 'rating' %} class="{{ order|lower }}"{% endif %}>{{ column_rating }}</a></th>

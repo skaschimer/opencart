@@ -22,7 +22,7 @@
             <div class="col-sm-10">
               <div class="form-control" style="height: 150px; overflow: auto;">
                 <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="input-backup-all" onchange="$(this).parent().parent().find(':checkbox').not(this).prop('checked', $(this).prop('checked'));"/>
+                  <checkbox-all input-id="input-backup-all" target="input-backup-list"></checkbox-all>
                   <label for="input-backup-all" class="form-check-label">{{ text_all }}</label>
                 </div>
                 {% set table_row = 0 %}
