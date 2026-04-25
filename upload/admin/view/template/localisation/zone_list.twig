@@ -3,7 +3,7 @@
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
-          <th class="text-center" style="width: 1px;"><checkbox-all target="form-zone"></checkbox-all></th>
+          <th class="text-center" style="width: 1px;"><checkbox-all target="#form-zone"></checkbox-all></th>
           <th><a href="{{ sort_country }}"{% if sort == 'country' %} class="{{ order|lower }}"{% endif %}>{{ column_country }}</a></th>
           <th><a href="{{ sort_name }}"{% if sort == 'name' %} class="{{ order|lower }}"{% endif %}>{{ column_name }}</a></th>
           <th><a href="{{ sort_code }}"{% if sort == 'code' %} class="{{ order|lower }}"{% endif %}>{{ column_code }}</a></th>

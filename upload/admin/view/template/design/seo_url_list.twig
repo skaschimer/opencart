@@ -3,7 +3,7 @@
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
-          <th class="text-center" style="width: 1px;"><checkbox-all target="form-seo-url"></checkbox-all></th>
+          <th class="text-center" style="width: 1px;"><checkbox-all target="#form-seo-url"></checkbox-all></th>
           <th><a href="{{ sort_keyword }}"{% if sort == 'keyword' %} class="{{ order|lower }}"{% endif %}>{{ column_keyword }}</a></th>
           <th><a href="{{ sort_key }}"{% if sort == 'key' %} class="{{ order|lower }}"{% endif %}>{{ column_key }}</a></th>
           <th><a href="{{ sort_value }}"{% if sort == 'value' %} class="{{ order|lower }}"{% endif %}>{{ column_value }}</a></th>

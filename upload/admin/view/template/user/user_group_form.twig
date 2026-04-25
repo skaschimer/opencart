@@ -40,8 +40,8 @@
                   <tbody>
                     <tr>
                       <td><strong>{{ text_all }}</strong></td>
-                      <td class="text-center"><input type="checkbox" id="input-permission-access" class="form-check-input" onchange="$('#user-group-permission input[name^=\'permission[access]\']').prop('checked', $(this).prop('checked'));"/></td>
-                      <td class="text-center"><input type="checkbox" id="input-permission-modify" class="form-check-input" onchange="$('#user-group-permission input[name^=\'permission[modify]\']').prop('checked', $(this).prop('checked'));"/></td>
+                      <td class="text-center"><checkbox-all target="#user-group-permission input[name^='permission[access]']"></checkbox-all></td>
+                      <td class="text-center"><checkbox-all target="#user-group-permission input[name^='permission[modify]']"></checkbox-all></td>
                     </tr>
                     {% for permission in permissions %}
                       <tr>
@@ -70,8 +70,8 @@
                   <tbody>
                     <tr>
                       <td><strong>{{ text_all }}</strong></td>
-                      <td class="text-center"><input type="checkbox" id="input-permission-access" class="form-check-input" onchange="$('#user-group-extension input[name^=\'permission[access]\']').prop('checked', $(this).prop('checked'));"/></td>
-                      <td class="text-center"><input type="checkbox" id="input-permission-modify" class="form-check-input" onchange="$('#user-group-extension input[name^=\'permission[modify]\']').prop('checked', $(this).prop('checked'));"/></td>
+                      <td class="text-center"><checkbox-all target="#user-group-extension input[name^='permission[access]']"></checkbox-all></td>
+                      <td class="text-center"><checkbox-all target="#user-group-extension input[name^='permission[modify]']"></checkbox-all></td>
                     </tr>
                     {% for extension in extensions %}
                       <tr>

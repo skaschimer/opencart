@@ -3,7 +3,7 @@
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
-          <th class="text-center" style="width: 1px;"><checkbox-all target="form-product"></checkbox-all></th>
+          <th class="text-center" style="width: 1px;"><checkbox-all target="#form-product"></checkbox-all></th>
           <th class="text-center">{{ column_image }}</th>
           <th><a href="{{ sort_name }}"{% if sort == 'name' %} class="{{ order|lower }}"{% endif %}>{{ column_name }}</a></th>
           <th class="d-none d-lg-table-cell"><a href="{{ sort_model }}"{% if sort == 'model' %} class="{{ order|lower }}"{% endif %}>{{ column_model }}</a></th>
