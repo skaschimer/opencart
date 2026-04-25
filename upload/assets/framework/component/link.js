@@ -1,6 +1,6 @@
 import { WebComponent } from '../library/webcomponent.js';
 
-class XLink extends WebComponent {
+customElements.define('x-link', class extends WebComponent {
     static observed= [
         'href',
         'target'
@@ -32,13 +32,15 @@ class XLink extends WebComponent {
         return '<a href="' + this.href + '" data-on="click:onClick">' + this.text + '</a>';
     }
 
-    onClick(e) {
+    async onClick(e) {
         if (this.target) e.preventDefault();
 
         let target = document.querySelector(this.target);
 
-        target.innerHTML = '';
-    }
-}
+        let response = await fetch(e.target.href);
 
-customElements.define('x-link', XLink);
+        console.log(response);
+
+        target.innerHTML = response;
+    }
+});
