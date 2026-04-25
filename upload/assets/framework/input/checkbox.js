@@ -9,9 +9,23 @@ customElements.define('checkbox-all', class extends WebComponent {
     }
 
     onChange(e) {
-        let target = document.getElementById(e.target.getAttribute('data-target'));
+        let stack = [];
 
-        Array.from(target.querySelectorAll('input[type=\'checkbox\']')).filter(element => {
+        let elements = document.querySelectorAll(e.target.getAttribute('data-target'));
+
+        for (let element of elements)  {
+            if (element.matches('input[type=\'checkbox\']')) {
+                stack.push(element);
+           } else {
+               let checkboxes = element.querySelectorAll('input[type=\'checkbox\']');
+
+               for (let checkbox of checkboxes) {
+                   stack.push(checkbox);
+               }
+           }
+        }
+
+        for (let element of stack) {
             if (!element.parentElement.matches('checkbox-all')) {
                 if (e.target.checked) {
                     element.setAttribute('checked', '');
@@ -19,6 +33,6 @@ customElements.define('checkbox-all', class extends WebComponent {
                     element.removeAttribute('checked');
                 }
             }
-        });
+        }
     }
 });
