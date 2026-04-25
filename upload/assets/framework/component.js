@@ -5,6 +5,7 @@ export { WebComponent } from './library/webcomponent.js';
 import('./component/alert.js');
 import('./component/button.js');
 import('./component/date.js');
+import('./component/link.js');
 import('./component/modal.js');
 import('./component/include.js');
 import('./component/pagination.js');
