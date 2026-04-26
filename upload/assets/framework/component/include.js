@@ -4,7 +4,7 @@ import { loader } from '../index.js';
 // Config
 const config = await loader.config('default');
 
-class XInclude extends WebComponent {
+customElements.define('x-include', class extends WebComponent {
     observed = ['src'];
 
     get src() {
@@ -12,6 +12,9 @@ class XInclude extends WebComponent {
     }
 
     set src(src) {
+
+        console.log(src);
+
         this.setAttribute('src', src);
     }
 
@@ -24,6 +27,8 @@ class XInclude extends WebComponent {
         let object = new controller.default();
 
         let output = await object.render();
+
+        console.log(output);
 
         if (output) {
             this.innerHTML = output;
@@ -51,6 +56,4 @@ class XInclude extends WebComponent {
             }
         }
     }
-}
-
-customElements.define('x-include', XInclude);
+});
