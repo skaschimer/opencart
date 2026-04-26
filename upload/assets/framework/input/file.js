@@ -1,6 +1,6 @@
 import { WebComponent } from '../library/webcomponent.js';
 
-class XUpload extends WebComponent {
+customElements.define('x-upload', class extends WebComponent {
     static observed = ['checked'];
     element = HTMLInputElement;
 
@@ -83,9 +83,7 @@ class XUpload extends WebComponent {
             this.element.checked = e.detail.value_new == 1 ? true : false;
         }
     };
-}
-
-customElements.define('x-upload', XUpload);
+});
 
 // Upload
 $(document).on('click', '[data-oc-toggle=\'upload\']', function() {
