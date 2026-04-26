@@ -1,6 +1,6 @@
 import { WebComponent } from '../component.js';
 
-class XPagination extends WebComponent {
+customElements.define('x-pagination', class extends WebComponent {
     static observed = [
         'href',
         'target',
@@ -150,6 +150,4 @@ class XPagination extends WebComponent {
 
         element.innerHTML = html;
     }
-}
-
-customElements.define('x-pagination', XPagination);
+});
