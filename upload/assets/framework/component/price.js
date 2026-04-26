@@ -9,7 +9,7 @@ const tax = await loader.library('tax');
 const currencies = loader.storage('localisation/currency');
 const tax_rates = loader.storage('localisation/tax_rate-');
 
-class XPrice extends WebComponent {
+customElements.define('x-price', class extends WebComponent {
     static observed = [
         'code',
         'amount',
@@ -119,10 +119,6 @@ class XPrice extends WebComponent {
     }
 
     async render() {
-        console.log(this.code);
-
         return this.currency.format(this.value, this.code);
     }
-}
-
-customElements.define('x-price', XPrice);
+});
