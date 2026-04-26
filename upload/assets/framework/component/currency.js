@@ -1,7 +1,7 @@
 import { WebComponent } from '../component.js';
 import { loader } from '../index.js';
 
-class XCurrency extends WebComponent {
+customElements.define('x-currency', class extends WebComponent {
     static observed = [
         'code',
         'amount',
@@ -51,6 +51,4 @@ class XCurrency extends WebComponent {
     async render() {
         return this.currency.format(this.value, this.code);
     }
-}
-
-customElements.define('x-currency', XCurrency);
+});
