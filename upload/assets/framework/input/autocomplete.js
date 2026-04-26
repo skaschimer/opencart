@@ -1,6 +1,6 @@
 import { WebComponent } from '../component.js';
 
-class XAutocomplete extends WebComponent {
+customElements.define('x-autocomplete', class extends WebComponent {
     async render() {
         let name = this.getAttribute('name');
         let value = this.getAttribute('value');
@@ -35,9 +35,7 @@ class XAutocomplete extends WebComponent {
 
 
     }
-}
-
-customElements.define('x-autocomplete', XAutocomplete);
+});
 
 /*
 
