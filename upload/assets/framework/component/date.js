@@ -1,6 +1,6 @@
 import { WebComponent } from '../library/webcomponent.js';
 
-class XDate extends WebComponent {
+customElements.define('x-date', class extends WebComponent {
     static observed= [
         'format',
         'value'
@@ -30,6 +30,4 @@ class XDate extends WebComponent {
 
         return string;
     }
-}
-
-customElements.define('x-date', XDate);
+});
