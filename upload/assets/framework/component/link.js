@@ -32,15 +32,14 @@ customElements.define('x-link', class extends WebComponent {
         return '<a href="' + this.href + '" data-on="click:onClick">' + this.text + '</a>';
     }
 
-    async onClick(e) {
+    onClick(e) {
         if (this.target) e.preventDefault();
 
         let target = document.querySelector(this.target);
 
-        let response = await fetch(e.target.href);
+        console.log(target);
 
-        console.log(response);
 
-        target.innerHTML = response;
+        target.src = this.href;
     }
 });
