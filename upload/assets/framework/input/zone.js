@@ -15,7 +15,7 @@ const config = await loader.config('default');
  *
  * optional required disabled
  */
-class XZone extends WebComponent {
+customElements.define('x-zone', class extends WebComponent {
     static observed = ['country_id'];
 
     default = HTMLInputElement;
@@ -75,6 +75,4 @@ class XZone extends WebComponent {
     onChange(e) {
         this.value = e.target.value;
     }
-}
-
-customElements.define('x-zone', XZone);
+});
