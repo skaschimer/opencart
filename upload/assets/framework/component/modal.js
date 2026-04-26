@@ -4,7 +4,7 @@ import { loader } from '../index.js';
 // Library
 const currency = await loader.library('currency');
 
-class XModal extends WebComponent {
+customElements.define('x-modal', class extends WebComponent {
     async render(){
         let data = {};
 
@@ -32,6 +32,4 @@ class XModal extends WebComponent {
     onClick() {
 
     }
-}
-
-customElements.define('x-modal', XModal);
+});
