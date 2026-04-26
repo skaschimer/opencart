@@ -18,7 +18,7 @@ const countries = await loader.storage('localisation/country');
  *
  * optional required disabled
  */
-class XCountry extends WebComponent {
+customElements.define('x-country', class extends WebComponent {
     static observed = ['value'];
 
     default = HTMLInputElement;
@@ -87,6 +87,4 @@ class XCountry extends WebComponent {
 
         if (this.target) this.target.setAttribute('country_id', this.value);
     }
-}
-
-customElements.define('x-country', XCountry);
+});
