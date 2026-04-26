@@ -1,6 +1,6 @@
 import { WebComponent } from '../component.js';
 
-class XAlert extends WebComponent {
+customElements.define('x-alert', class extends WebComponent {
     render() {
         let icon = '';
         let type = this.getAttribute('type');
@@ -47,6 +47,4 @@ class XAlert extends WebComponent {
 
         this._timer = window.setInterval(fade.bind(this), 60);
     }
-}
-
-customElements.define('x-alert', XAlert);
+});
