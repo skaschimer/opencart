@@ -19,21 +19,19 @@ customElements.define('x-include', class extends WebComponent {
         // Get the source HTML to load
         if (!this.src) return;
 
-
         console.log('RENDER');
-        console.log(this.src);
-
-
-
+        console.log(config.config_path + this.src + '.js');
 
         let controller = await import(config.config_path + this.src + '.js');
+
+        console.log(controller);
 
         let object = new controller.default();
 
         console.log(object);
 
-
         let output = await object.render();
+
         console.log(output);
 
         //new URLSearchParams
