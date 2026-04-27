@@ -6,9 +6,7 @@ export class WebComponent extends HTMLElement {
     async connectedCallback() {
         // Adds reactive component event changes to the attributes of the element to re-render the contents.
         for (let attribute of this.attributes) {
-            if (!attribute.name.startsWith('data-')) {
-                this.addEventListener('[' + attribute.name + ']', this.update.bind(this));
-            }
+            this.addEventListener('[' + attribute.name + ']', this.update.bind(this));
         }
 
         if (this.connected !== undefined) {
