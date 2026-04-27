@@ -5,41 +5,41 @@
         <h5>{{ text_information }}</h5>
         <ul class="list-unstyled">
           {% if articles %}
-            <li><x-link href="cms/article" target="#content">{{ text_blog }}</x-link></li>
+            <li><x-link href="cms/topic" target="content">{{ text_blog }}</x-link></li>
           {% endif %}
           {% for information in informations %}
-            <li><a href="information/information-{{ information.information_id }}">{{ information.title }}</a></li>
+            <li><a href="information/information-{{ information.information_id }}" target="content">{{ information.title }}</a></li>
           {% endfor %}
         </ul>
       </div>
       <div class="col-sm-3">
         <h5>{{ text_service }}</h5>
         <ul class="list-unstyled">
-          <li><a href="information/contact" target="#content">{{ text_contact }}</a></li>
-          <li><a href="information/return" target="#content">{{ text_return }}</a></li>
+          <li><x-link href="information/contact" target="content">{{ text_contact }}</x-link></li>
+          <li><x-link href="account/return_form" target="content">{{ text_return }}</x-link></li>
           {% if gdpr %}
-            <li><a href="information/gdpr" target="#content">{{ text_gdpr }}</a></li>
+            <li><x-link href="information/gdpr" target="content">{{ text_gdpr }}</x-link></li>
           {% endif %}
-          <li><a href="information/sitemap" target="#content">{{ text_sitemap }}</a></li>
+          <li><x-link href="information/sitemap" target="content">{{ text_sitemap }}</x-link></li>
         </ul>
       </div>
       <div class="col-sm-3">
         <h5>{{ text_extra }}</h5>
         <ul class="list-unstyled">
-          <li><a href="catalog/manufacturer">{{ text_manufacturer }}</a></li>
+          <li><x-link href="catalog/manufacturer" target="content">{{ text_manufacturer }}</x-link></li>
           {% if affiliate %}
-            <li><a href="account/affiliate">{{ text_affiliate }}</a></li>
+            <li><x-link href="account/affiliate" target="content">{{ text_affiliate }}</x-link></li>
           {% endif %}
-          <li><a href="catalog/special">{{ text_special }}</a></li>
+          <li><x-link href="catalog/special" target="content">{{ text_special }}</x-link></li>
         </ul>
       </div>
       <div class="col-sm-3">
         <h5>{{ text_account }}</h5>
         <ul class="list-unstyled">
-          <li><a href="account/account">{{ text_account }}</a></li>
-          <li><a href="account/order">{{ text_order }}</a></li>
-          <li><a href="account/wishlist">{{ text_wishlist }}</a></li>
-          <li><a href="account/newsletter">{{ text_newsletter }}</a></li>
+          <li><x-link href="account/account" target="content">{{ text_account }}</x-link></li>
+          <li><x-link href="account/order" target="content">{{ text_order }}</x-link></li>
+          <li><x-link href="account/wishlist" target="content">{{ text_wishlist }}</x-link></li>
+          <li><x-link href="account/newsletter" target="content">{{ text_newsletter }}</x-link></li>
         </ul>
       </div>
     </div>
