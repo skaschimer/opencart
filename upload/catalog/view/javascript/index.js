@@ -75,6 +75,6 @@ event.register(/template\/.+\/before/g, ({ path, data }) => {
     //}
 });
 
-import '../../../assets/framework/component.js';
+import './component.js';
 
 export { loader };
