@@ -1,16 +1,17 @@
-import { loader } from "../../../../assets/framework";
+import { Controller } from '../component.js';
+import { loader } from '../index.js';
 
 // Library
-const session= loader.library('session');
+const session = await loader.library('session');
 
 // Config
-const config = loader.config('default');
+const config = await loader.config('default');
 
 // Language
-const language = loader.language('information/contact');
+const language = await loader.language('information/contact');
 
 // Storage
-const locations = loader.storage('information/location');
+const locations = await loader.storage('information/location');
 
 export default class extends Controller {
     async connected() {
@@ -18,8 +19,6 @@ export default class extends Controller {
     }
 
     async render() {
-        console.log('dfdf');
-
         let data = {};
 
         // Store Details
@@ -50,7 +49,6 @@ export default class extends Controller {
 
     onSubmit(e) {
         e.preventDefault();
-
 
     }
 }
