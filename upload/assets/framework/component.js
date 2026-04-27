@@ -3,7 +3,6 @@ export { WebComponent } from './library/webcomponent.js';
 
 // General
 import('./component/alert.js');
-import('./component/button.js');
 import('./component/date.js');
 import('./component/link.js');
 import('./component/modal.js');
