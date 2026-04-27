@@ -11,10 +11,9 @@ export default class extends Controller {
         let article = await loader.storage('cms/article-' + this.getAttribute('article_id'));
 
         if (article.length) {
-            data.image = article.image;
-
             data.name = article.name;
             data.description = article.description;
+            data.image = article.image;
             data.author = article.author;
             data.tag = article.tag;
             data.date_added = article.date_added;
