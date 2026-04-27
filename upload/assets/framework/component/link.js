@@ -38,7 +38,5 @@ customElements.define('x-link', class extends WebComponent {
         let target = document.getElementById(this.target);
 
         target.src = this.href;
-
-        console.log(target.src);
     }
 });
