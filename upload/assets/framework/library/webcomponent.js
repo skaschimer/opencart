@@ -1,14 +1,14 @@
 export class WebComponent extends HTMLElement {
     constructor() {
         super();
-    }
 
-    async connectedCallback() {
         // Adds reactive component event changes to the attributes of the element to re-render the contents.
         for (let attribute of this.attributes) {
             this.addEventListener('[' + attribute.name + ']', this.update.bind(this));
         }
+    }
 
+    async connectedCallback() {
         if (this.connected !== undefined) {
             this.connected();
         }
