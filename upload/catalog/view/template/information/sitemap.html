@@ -25,25 +25,25 @@
   </div>
   <div class="col-sm-6">
     <ul>
-      <li><a href="{{ special }}">{{ text_special }}</a></li>
-      <li><a href="{{ account }}">{{ text_account }}</a>
+      <li><a href="product/search">{{ text_search }}</a></li>
+      <li><a href="product/special">{{ text_special }}</a></li>
+      <li><a href="account/account">{{ text_account }}</a>
         <ul>
-          <li><a href="{{ edit }}">{{ text_edit }}</a></li>
-          <li><a href="{{ password }}">{{ text_password }}</a></li>
-          <li><a href="{{ address }}">{{ text_address }}</a></li>
-          <li><a href="{{ history }}">{{ text_history }}</a></li>
-          <li><a href="{{ download }}">{{ text_download }}</a></li>
+          <li><a href="account/edit">{{ text_edit }}</a></li>
+          <li><a href="account/password">{{ text_password }}</a></li>
+          <li><a href="account/address">{{ text_address }}</a></li>
+          <li><a href="account/history">{{ text_history }}</a></li>
+          <li><a href="account/download">{{ text_download }}</a></li>
         </ul>
       </li>
-      <li><a href="{{ cart }}">{{ text_cart }}</a></li>
-      <li><a href="{{ checkout }}">{{ text_checkout }}</a></li>
-      <li><a href="{{ search }}">{{ text_search }}</a></li>
+      <li><a href="checkout/cart">{{ text_cart }}</a></li>
+      <li><a href="checkout/checkout">{{ text_checkout }}</a></li>
       <li>{{ text_information }}
         <ul>
           {% for information in informations %}
             <li><a href="{{ information.href }}">{{ information.title }}</a></li>
           {% endfor %}
-          <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+          <li><a href="information/contact">{{ text_contact }}</a></li>
         </ul>
       </li>
     </ul>
