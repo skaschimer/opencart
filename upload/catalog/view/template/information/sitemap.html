@@ -41,7 +41,7 @@
       <li>{{ text_information }}
         <ul>
           {% for information in informations %}
-            <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+            <li><a href="information/information-{{ information.information_id }}">{{ information.title }}</a></li>
           {% endfor %}
           <li><a href="information/contact">{{ text_contact }}</a></li>
         </ul>
