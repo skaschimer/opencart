@@ -1,5 +1,8 @@
 import { Controller } from '../component.js';
-import {loader} from "../../../../assets/framework";
+import { loader } from '../index.js';
+
+// Language
+const language = await loader.language('cms/topic');
 
 export default class extends Controller {
     async connected() {
@@ -20,9 +23,7 @@ export default class extends Controller {
 
         //}
 
-        console.log('hghg');
-
-        return await loader.template('cms/article', { ...data, ...config });
+        return loader.template('cms/article', { ...data, ...language });
     }
 
     async onSubmit() {
