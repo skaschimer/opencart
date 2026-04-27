@@ -5,16 +5,13 @@ import { loader } from '../index.js';
 const config = await loader.config('default');
 
 customElements.define('x-include', class extends WebComponent {
-    observed = ['src'];
+    static observed = ['src'];
 
     get src() {
         return this.getAttribute('src');
     }
 
     set src(src) {
-
-        console.log(src);
-
         this.setAttribute('src', src);
     }
 
@@ -22,13 +19,26 @@ customElements.define('x-include', class extends WebComponent {
         // Get the source HTML to load
         if (!this.src) return;
 
+
+        console.log('RENDER');
+        console.log(this.src);
+
+
+
+
         let controller = await import(config.config_path + this.src + '.js');
 
         let object = new controller.default();
 
-        let output = await object.render();
+        console.log(object);
 
+
+        let output = await object.render();
         console.log(output);
+
+        //new URLSearchParams
+
+        //const searchParams = new URLSearchParams("key1=value1&key2=value2");
 
         if (output) {
             this.innerHTML = output;
