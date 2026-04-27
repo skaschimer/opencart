@@ -35,11 +35,10 @@ customElements.define('x-link', class extends WebComponent {
     onClick(e) {
         if (this.target) e.preventDefault();
 
-        let target = document.querySelector(this.target);
-
-        console.log(target);
-
+        let target = document.getElementById(this.target);
 
         target.src = this.href;
+
+        console.log(target.src);
     }
 });
